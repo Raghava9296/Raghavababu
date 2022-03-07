@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Stop Watch</title>
+</head>
+<body>
+	<span id="time"></span>
+	<script type="text/javascript">
+		function getTime(){
+			var today=new Date();
+			var h=today.getHours();
+			var m=today.getMinutes();
+			var s=today.getSeconds();
+			var session="AM"
+			
+		if(h==0){
+			h=12;
+		}
+		if(h>12){
+			h=h-12;
+			session="PM"
+		}
+		if(h<10){
+			h="0"+h;
+		}
+		if(m<10){
+			m="0"+m;
+		}
+		if(s<10){
+			s="0"+s;
+		}
+
+		document.getElementById("time").innerHTML=h+":"+m+":"+s+" "+session;
+			setInterval("getTime()",1000);
+		}
+		getTime();
+	</script>
+</body>
+</html>
